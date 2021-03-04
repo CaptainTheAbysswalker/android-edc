@@ -18,7 +18,12 @@
         </activity>
         <activity android:name=".HomeActivity">
         </activity>
-        <activity android:name=".GalleryActivity"
-></activity>    </application>
+        <activity android:name=".GalleryActivity">
+            
+        </activity>    
+        <activity android:name=".GalleryPreviewActivity">
+
+        </activity>
+    </application>
 
 </manifest>

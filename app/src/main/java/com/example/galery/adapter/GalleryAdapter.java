@@ -22,7 +22,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
     @Override
     public GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_galery, parent, false);
+                .inflate(R.layout.gallery_item, parent, false);
         return new GalleryViewHolder(view);
     }
 
@@ -48,7 +48,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
 
 
         public void bind(String element) {
-            text.setText("new item");
+            text.setText(element);
         }
     }
 }

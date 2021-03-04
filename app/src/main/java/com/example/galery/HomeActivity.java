@@ -17,7 +17,8 @@ public class HomeActivity extends AppCompatActivity {
 
     public ImageButton backButton;
     public LinearLayout selectGal;
-
+    private RecyclerView galleryList;
+    private GalleryAdapter galleryAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +35,10 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-        RecyclerView galleryList = findViewById(R.id.home_galery);
+        galleryList = findViewById(R.id.home_galery);
         galleryList.setLayoutManager(new LinearLayoutManager(this));
+        galleryAdapter = new GalleryAdapter();
+        galleryList.setAdapter(galleryAdapter);
     }
 
     public void onBackClick(View view){
@@ -44,7 +47,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void onSelectGallery(View view) {
-        Intent intent = new Intent(HomeActivity.this, GalleryActivity.class);
+        Intent intent = new Intent(HomeActivity.this, GalleryPreviewActivity.class);
         startActivity(intent);
     }
 }

@@ -16,7 +16,7 @@
         android:layout_weight="1">
 
         <ImageView
-        android:id="@+id/gallery_item_image"
+        android:id="@+id/gallery__preview_image"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:src="@drawable/placeholder" />
@@ -30,13 +30,13 @@
         android:orientation="vertical"
         >
         <ImageView
-            android:id="@+id/gallery_item_image_2"
+            android:id="@+id/gallery_preview_image_2"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:src="@drawable/placeholder"/>
 
         <ImageView
-            android:id="@+id/gallery_item_image_3"
+            android:id="@+id/gallery_preview_image_3"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:src="@drawable/placeholder"/>

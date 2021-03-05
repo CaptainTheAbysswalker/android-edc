@@ -12,17 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.galery.GalleryActivity;
-import com.example.galery.GalleryPreviewActivity;
+import com.example.galery.ImageInfo;
 import com.example.galery.R;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 public class PreviewAdapter extends RecyclerView.Adapter<PreviewAdapter.PreviewViewHolder> {
-
+    private List<ImageInfo> imgData = new ArrayList<>();
     private Context mContext;
-    String[] elements = {"1st gal", "2st gal", "3rd gal"};
-
-
+    private ImageInfo imageElement;
 
 
     public PreviewAdapter(Context context){
@@ -38,19 +39,26 @@ public class PreviewAdapter extends RecyclerView.Adapter<PreviewAdapter.PreviewV
 
     @Override
     public void onBindViewHolder(@NonNull PreviewViewHolder holder, int position) {
-        holder.bind(elements[position]);
+        holder.bind(imgData.get(position));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                imageElement = imgData.get(position);
                 Intent intent = new Intent(mContext, GalleryActivity.class);
+                intent.putExtra("image", imageElement);
                 mContext.startActivity(intent);
             }
         });
     }
 
+    public void setItems(ImageInfo[] images){
+        Collections.addAll(imgData, images);
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
-        return 3;
+        return imgData.size();
     }
 
 
@@ -61,13 +69,11 @@ public class PreviewAdapter extends RecyclerView.Adapter<PreviewAdapter.PreviewV
         private ImageView image;
         public PreviewViewHolder(@NonNull View itemView) {
             super(itemView);
-            text = itemView.findViewById(R.id.gallery_item_text);
-            image = itemView.findViewById(R.id.gallery_item_image);
+            image = itemView.findViewById(R.id.gallery__preview_image);
         }
 
-
-        public void bind(String element) {
-
+        public void bind(ImageInfo element) {
+           image.setImageResource(element.getSrc());
         }
 
 

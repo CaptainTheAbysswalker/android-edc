@@ -1,100 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:layout_behavior="@string/bottom_sheet_behavior"
-    >
+    app:layout_behavior="@string/bottom_sheet_behavior">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:behavior_peekHeight='100dp'
+
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+>
+
     <LinearLayout
+        android:paddingLeft="80dp"
+        android:layout_marginTop="20dp"
+        android:paddingTop="80dp"
+        android:paddingRight="40dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        app:behavior_peekHeight='100dp'
-        android:background="@drawable/home_background"
-        android:paddingRight="16dp"
-        android:paddingLeft="80dp">
+        android:background="@drawable/description_background"
+        android:layout_gravity="top"
+        android:orientation="vertical"
+        >
+
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:orientation="vertical">
-            <LinearLayout
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="40dp"
-                android:layout_marginBottom="24dp">
+                android:text="Artist"
+                android:textSize="16sp" />
 
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/home_background"
-                    tools:src="@mipmap/red"
-                    android:layout_marginRight="4dp"/>
-                <TextView
+            <TextView
+                android:id="@+id/info_artist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Artist name"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/info_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The Museum of Modern Art"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/info_sublocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Melbourne, Australia"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/info_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Melbourne based Illustrator and Designer Ken Taylor works primarily within the music industry and is predominantly well known for his striking rock posters.
+Ken started in Perth Western Australia doing posters and album artwork for local bands. " />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="top">
+
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Overview"
+            app:backgroundTint="#F44336"
+            app:cornerRadius="10dp"
+            android:layout_marginBottom="16dp"
+            app:elevation="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:paddingLeft="120dp">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/home_background"
+                tools:src="@mipmap/red" />
+
+            <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Digital illustration" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="16dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Artist"
-                    android:textSize="16sp"
-                    />
-
-                <TextView
-                    android:id="@+id/info_artist"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Artist name"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="16dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Location"
-                    android:textSize="16sp"
-                    />
-
-                <TextView
-                    android:id="@+id/info_location"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="The Museum of Modern Art"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/info_sublocation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Melbourne, Australia"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/info_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Melbourne based Illustrator and Designer Ken Taylor works primarily within the music industry and is predominantly well known for his striking rock posters.
-Ken started in Perth Western Australia doing posters and album artwork for local bands. " />
         </LinearLayout>
-
     </LinearLayout>
+</FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

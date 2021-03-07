@@ -20,19 +20,19 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="88dp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp">
 
                 <ImageView
                     android:id="@+id/back_galery"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     app:srcCompat="@mipmap/back" />
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <TextView
                         android:id="@+id/gallery_name"
@@ -40,13 +40,27 @@
                         android:layout_height="wrap_content"
                         android:textSize="28sp"
                         android:textColor="#474747"
-                        android:text="Galery name" />
-                    <TextView
+                        android:text="Galery name"
+                        android:layout_marginBottom="8dp"/>
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:textColor="#979EA6"
-                        android:text="Curated galleries" />
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="#979EA6"
+                            android:layout_marginBottom="8dp"
+                            android:text="CURATED GALLERIES"
+                            android:textStyle="bold"/>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/curated_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
 

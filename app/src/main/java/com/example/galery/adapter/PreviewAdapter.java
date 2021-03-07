@@ -63,17 +63,18 @@ public class PreviewAdapter extends RecyclerView.Adapter<PreviewAdapter.PreviewV
 
 
 
-    class PreviewViewHolder extends RecyclerView.ViewHolder{
+    static class PreviewViewHolder extends RecyclerView.ViewHolder{
 
         private TextView text;
         private ImageView image;
         public PreviewViewHolder(@NonNull View itemView) {
             super(itemView);
+
             image = itemView.findViewById(R.id.gallery__preview_image);
         }
 
         public void bind(ImageInfo element) {
-           image.setImageResource(element.getSrc());
+            image.setImageResource(element.getSrc());
         }
 
 

@@ -3,12 +3,16 @@ package com.example.galery;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.GridLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.example.galery.adapter.CuratedAdapter;
 import com.example.galery.adapter.PreviewAdapter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -22,7 +26,11 @@ import java.util.Arrays;
 public class GalleryPreviewActivity extends AppCompatActivity {
 
     private RecyclerView galleryImages;
+    private RecyclerView curatedList;
+
     private PreviewAdapter previewAdapter;
+    private CuratedAdapter curatedAdapter;
+
     private TextView galleryName;
     private String newName;
     private String jsonImages;
@@ -49,13 +57,26 @@ public class GalleryPreviewActivity extends AppCompatActivity {
         galleryName.setText(newName);
         ByteArrayOutputStream out = new ByteArrayOutputStream();
 
+        initCuratedRecycler();
         initRecyclerView(images);
 
     }
 
+    public void initCuratedRecycler(){
+        curatedList = findViewById(R.id.curated_list);
+        LinearLayoutManager horizontalLayoutRecycler
+                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        curatedList.setLayoutManager(horizontalLayoutRecycler);
+        curatedAdapter = new CuratedAdapter(this);
+        curatedList.setAdapter(curatedAdapter);
+    }
+
     public void initRecyclerView(ImageInfo[] images){
         galleryImages = findViewById(R.id.galery_list);
-        galleryImages.setLayoutManager(new LinearLayoutManager(this));
+        GridLayoutManager gridLayoutManager =
+                new GridLayoutManager(this,2, GridLayoutManager.VERTICAL,false);
+
+        galleryImages.setLayoutManager(gridLayoutManager);
 
         previewAdapter = new PreviewAdapter(this);
 
